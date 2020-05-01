@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "giant-contact"
+version = "0.1.0"
+description = "Adds a generic contact app for use with Giant projects"
+authors = ["Will-Hoey <will.hoey@giantmade.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/giantmade/giant-contact"
+repository = "https://github.com/giantmade/giant-contact"
+keywords = ["contact", "app"]
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+include = [
+    "LICENSE",
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^19.10b0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

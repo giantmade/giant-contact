@@ -1,14 +1,15 @@
 import pytest
 from django.core.mail import EmailMessage
 
-from contact import forms, models
 
 
+@pytest.mark.requires_django_project
 @pytest.mark.django_db
 class TestSignupForm:
     """
     Test class for the Enquiry form and it's methods
     """
+    from contact import forms, models
 
     def test_form_save(self):
         """

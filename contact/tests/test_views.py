@@ -1,14 +1,15 @@
 import pytest
 from django.urls import reverse
 
-from contact import models, views
 
 
+@pytest.mark.requires_django_project
 @pytest.mark.django_db
 class TestFormView:
     """
     Test case for the form view
     """
+    from contact import models, views
 
     def test_form(self, client):
         """

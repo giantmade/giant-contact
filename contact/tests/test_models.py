@@ -1,14 +1,15 @@
 import pytest
 from django.core.mail import EmailMultiAlternatives
 
-from contact.models import Contact, Enquiry
 
 
+@pytest.mark.requires_django_project
 @pytest.mark.django_db
 class TestEnquiry:
     """
     A test class for the enquiry model and it's functionality.
     """
+    from contact.models import Contact, Enquiry
 
     def test_str(self):
         """

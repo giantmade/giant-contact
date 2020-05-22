@@ -1,7 +1,9 @@
+import pytest
 from contact.cms_apps import ContactApp
 
 
-class EventsAppTest:
+@pytest.mark.requires_django_project
+class TestEventsApp:
     """
     Test case for the EventsApp
     """

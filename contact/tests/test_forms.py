@@ -1,8 +1,7 @@
+import pytest
 from django.core.mail import EmailMessage
 
-import pytest
-
-from .. import forms, models
+from contact import forms, models
 
 
 @pytest.mark.django_db

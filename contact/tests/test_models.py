@@ -1,8 +1,7 @@
+import pytest
 from django.core.mail import EmailMultiAlternatives
 
-import pytest
-
-from ..models import Contact, Enquiry
+from contact.models import Contact, Enquiry
 
 
 @pytest.mark.django_db

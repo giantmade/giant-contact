@@ -1,8 +1,7 @@
+import pytest
 from django.urls import reverse
 
-import pytest
-
-from .. import models, views
+from contact import models, views
 
 
 @pytest.mark.django_db

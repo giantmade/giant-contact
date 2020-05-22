@@ -1,4 +1,4 @@
-from ..cms_apps import ContactApp
+from contact.cms_apps import ContactApp
 
 
 class EventsAppTest:

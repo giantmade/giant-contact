@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib import admin
 
 from . import models
@@ -15,14 +16,17 @@ class EnquiryAdmin(admin.ModelAdmin):
         "email",
         "subject",
         "created_at",
-    ]
-    search_fields = ["country", "position"]
+    ] or settings.CONTACT_ADMIN_LIST_DISPLAY
+
     fieldsets = (
         ("Details", {"fields": ["first_name", "last_name", "email", "subject",]},),
         (
             "Metadata",
             {"fields": ["created_at", "updated_at", "is_published", "publish_at"]},
         ),
-    )
+    ) or settings.CONTACT_ADMIN_FIELDSETS
 
-    readonly_fields = ["created_at", "updated_at"]
+    readonly_fields = [
+        "created_at",
+        "updated_at",
+    ] or settings.CONTACT_ADMIN_READONLY_FIELDS

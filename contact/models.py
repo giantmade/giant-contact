@@ -5,7 +5,8 @@ from django.db import models
 from django.template.loader import render_to_string
 from django.urls import reverse, reverse_lazy
 
-from core.models.mixins import PublishingMixin, PublishingQuerySetMixin, TimestampMixin
+from mixins.models import (PublishingMixin, PublishingQuerySetMixin,
+                           TimestampMixin)
 
 
 class Enquiry(TimestampMixin):
@@ -29,20 +30,31 @@ class Enquiry(TimestampMixin):
         String representation of the enquiry object
         """
 
-        return f"Contact enquiry from {self.full_name}"
+        return f"Contact Enquiry from {self.full_name}"
 
     def send_email(self):
         """
         Send an email to the admins, notifying of an enquiry
         """
+
         context = {
-            "obj": self,
             "subject": self.subject,
+            "obj": self,
         }
-        html_result = render_to_string("emails/base.html", context={"obj": self},)
 
-        txt_result = render_to_string("contact/email/alert.txt", context={"obj": self},)
+        # Build HTML representation.
+        html_result = render_to_string(
+            "contact/email/message.html" or settings.CONTACT_EMAIL_TEMPLATE_HTML,
+            context={"obj": self},
+        )
 
+        # Build text representation.
+        txt_result = render_to_string(
+            "contact/email/message.txt" or settings.CONTACT_EMAIL_TEMPLATE_TXT,
+            context={"obj": self},
+        )
+
+        # Build the email.
         message = EmailMultiAlternatives(
             subject=context["subject"],
             body=txt_result,
@@ -68,14 +80,6 @@ class Enquiry(TimestampMixin):
         """
 
         return reverse_lazy("contact:contact-us")
-
-    @property
-    def get_absolute_success_url(self):
-        """
-        Return the absolute success URL
-        """
-
-        return reverse_lazy("contact:success")
 
     @property
     def admin_url(self):

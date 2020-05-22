@@ -32,4 +32,12 @@ This application exposes the following settings:
 
 ## URLs
 
-Add the following to `core.urls`..... blah
+Add the following to `core.urls` for general functionality:
+
+    path("contact/", include("contact.urls"), namespace=contact)
+
+If you want to customize the urls to include a different path and/or templates, first you must import `contact.views` in `core.urls` and then you could do add the following:
+
+    path("contact-us/", contact.views.EnquiryFormView.as_view({"template_name": "custom_template_name.html}), name=contact-us)
+    path("contact-us/success/", contact.views..SuccessView.as_view(), name=contact-success)
+ 

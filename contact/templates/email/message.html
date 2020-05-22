@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+
+<body style="width: 100%; margin:0; padding:0; font-family: Arial, Helvetica, sans-serif; line-height: 32px; font-size: 16px; color: #4a4a4a; background-color: #eeeeee;">
+    {% block body %}
+        <p>Name: {{ obj.first_name }}.</p> 
+        <p>Email: {{ obj.email }}</p>
+        <p>Subject: {{ obj.subject }}</p>
+        <p>Message: {{ obj.message }}</p>
+    {% endblock body %}
+</body>
+</html>

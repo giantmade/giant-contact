@@ -1,19 +1,35 @@
-Giant Contact
-===================
-A small, re-usable package which can be used in any project that requires a generic `Contact` app. 
+# Giant Contact
+
+A re-usable package which can be used in any project that requires a generic `Contact` app. 
+
 This will include the basic formatting and functionality such as model creation via the admin and email sending.
 
-Installation
-===================
+## Installation
 
-To install with the package manager simply run
+To install with the package manager, run:
 
     $ poetry add giant-contact
 
-You should then add `"contact"` to the `INSTALLED_APPS` in `base.py`. Copy the templates folder into the correct directory,
-this should be something like `src/core/templates/contact` and remove the current templates directory. In `base.py` there should also
-be a `DEFAULT_FROM_EMAIL` and a `DEFAULT_TO_EMAIL`. This is used by the email sending method.
+You should then add `"contact"` to the `INSTALLED_APPS` in `base.py`.  
 
-Add `contact` to the `makefile` and run migrations once the models are set up how you would like.
+In `base.py` there should also be a `DEFAULT_FROM_EMAIL` and a `DEFAULT_TO_EMAIL`. This is used by the email sending method.
 
+Add if you're using `django-project-base`, you can add `contact` to the `Makefile` and to run migrations and tests.
 
+## Configuration
+
+This application exposes the following settings:
+
+- `DEFAULT_FROM_EMAIL` is the `From` address in the email.
+- `DEFAULT_TO_EMAIL` is the default recipient. This is usually the client's address.
+
+- `CONTACT_EMAIL_TEMPLATE_HTML` is the path to the email's HTML representation.
+- `CONTACT_EMAIL_TEMPLATE_TXT` is the path to the email's text representation.
+
+- `CONTACT_ADMIN_LIST_DISPLAY` is the field list for the admin index.
+- `CONTACT_ADMIN_FIELDSETS` allows the user to define the admin fieldset.
+- `CONTACT_ADMIN_READONLY_FIELDS` allows the user to configure readonly fields in the admin.
+
+## URLs
+
+Add the following to `core.urls`..... blah

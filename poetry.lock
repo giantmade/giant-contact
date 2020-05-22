@@ -67,12 +67,12 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 version = "0.4.3"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
 name = "django"
 optional = false
 python-versions = ">=3.5"
-version = "2.2.12"
+version = "2.2"
 
 [package.dependencies]
 pytz = "*"
@@ -81,6 +81,78 @@ sqlparse = "*"
 [package.extras]
 argon2 = ["argon2-cffi (>=16.1.0)"]
 bcrypt = ["bcrypt"]
+
+[[package]]
+category = "dev"
+description = "Class based template tags for Django"
+name = "django-classy-tags"
+optional = false
+python-versions = "*"
+version = "1.0.0"
+
+[package.dependencies]
+django = ">=1.11"
+six = "*"
+
+[[package]]
+category = "dev"
+description = "An Advanced Django CMS"
+name = "django-cms"
+optional = false
+python-versions = "*"
+version = "3.7.2"
+
+[package.dependencies]
+Django = ">=1.11,<4"
+django-classy-tags = ">=0.7.2"
+django-formtools = ">=2.1"
+django-sekizai = ">=0.7"
+django-treebeard = ">=4.3"
+djangocms-admin-style = ">=1.2"
+six = "*"
+
+[[package]]
+category = "dev"
+description = "A set of high-level abstractions for Django forms"
+name = "django-formtools"
+optional = false
+python-versions = "*"
+version = "2.2"
+
+[package.dependencies]
+Django = ">=1.11"
+
+[[package]]
+category = "dev"
+description = "Django Sekizai"
+name = "django-sekizai"
+optional = false
+python-versions = "*"
+version = "1.1.0"
+
+[package.dependencies]
+django = ">=1.11"
+django-classy-tags = ">=0.9.0"
+six = "*"
+
+[[package]]
+category = "dev"
+description = "Efficient tree implementations for Django"
+name = "django-treebeard"
+optional = false
+python-versions = "*"
+version = "4.3.1"
+
+[package.dependencies]
+Django = ">=1.8"
+
+[[package]]
+category = "dev"
+description = "Adds pretty CSS styles for the django CMS admin interface."
+name = "djangocms-admin-style"
+optional = false
+python-versions = "*"
+version = "1.5.0"
 
 [[package]]
 category = "dev"
@@ -185,7 +257,7 @@ checkqa-mypy = ["mypy (v0.761)"]
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
 
 [[package]]
-category = "main"
+category = "dev"
 description = "World timezone definitions, modern and historical"
 name = "pytz"
 optional = false
@@ -209,7 +281,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 version = "1.14.0"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "Non-validating SQL parser"
 name = "sqlparse"
 optional = false
@@ -254,7 +326,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "ca8535f839f02ea9ec784a19b3968b7d3c27c1abba67873c79b8ffbee15700f5"
+content-hash = "afe35f05bf6c5f4dc018c86b65af08247385481f5e63c8d45e0d520fac6d370b"
 python-versions = "^3.6"
 
 [metadata.files]
@@ -283,8 +355,28 @@ colorama = [
     {file = "colorama-0.4.3.tar.gz", hash = "sha256:e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"},
 ]
 django = [
-    {file = "Django-2.2.12-py3-none-any.whl", hash = "sha256:6ecd229e1815d4fc5240fc98f1cca78c41e7a8cd3e3f2eefadc4735031077916"},
-    {file = "Django-2.2.12.tar.gz", hash = "sha256:69897097095f336d5aeef45b4103dceae51c00afa6d3ae198a2a18e519791b7a"},
+    {file = "Django-2.2-py3-none-any.whl", hash = "sha256:a2814bffd1f007805b19194eb0b9a331933b82bd5da1c3ba3d7b7ba16e06dc4b"},
+    {file = "Django-2.2.tar.gz", hash = "sha256:7c3543e4fb070d14e10926189a7fcf42ba919263b7473dceaefce34d54e8a119"},
+]
+django-classy-tags = [
+    {file = "django-classy-tags-1.0.0.tar.gz", hash = "sha256:ad6a25fc2b58a098f00d86bd5e5dad47922f5ca4e744bc3cccb7b4be5bc35eb1"},
+]
+django-cms = [
+    {file = "django-cms-3.7.2.tar.gz", hash = "sha256:9e65be1d7797a916fba2c11b034f221567cedff529e352f348e604ac36ea7faf"},
+    {file = "django_cms-3.7.2-py2.py3-none-any.whl", hash = "sha256:c925807274ac1a02175d7a9478f6f0c306692d2dff60ac885d771e98acc58197"},
+]
+django-formtools = [
+    {file = "django-formtools-2.2.tar.gz", hash = "sha256:c5272c03c1cd51b2375abf7397a199a3148a9fbbf2f100e186467a84025d13b2"},
+    {file = "django_formtools-2.2-py2.py3-none-any.whl", hash = "sha256:304fa777b8ef9e0693ce7833f885cb89ba46b0e46fc23b01176900a93f46742f"},
+]
+django-sekizai = [
+    {file = "django-sekizai-1.1.0.tar.gz", hash = "sha256:e2f6e666d4dd9d3ecc27284acb85ef709e198014f5d5af8c6d54ed04c2d684d9"},
+]
+django-treebeard = [
+    {file = "django-treebeard-4.3.1.tar.gz", hash = "sha256:83aebc34a9f06de7daaec330d858d1c47887e81be3da77e3541fe7368196dd8a"},
+]
+djangocms-admin-style = [
+    {file = "djangocms-admin-style-1.5.0.tar.gz", hash = "sha256:47d9868aa448e593ce90059d6542a4d907c120d357cd0561c586f5557e3ba316"},
 ]
 importlib-metadata = [
     {file = "importlib_metadata-1.6.0-py2.py3-none-any.whl", hash = "sha256:2a688cbaa90e0cc587f1df48bdc97a6eadccdcd9c35fb3f976a09e3b5016d90f"},

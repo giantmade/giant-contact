@@ -2,8 +2,7 @@ import pytest
 from django.urls import reverse
 
 
-
-@pytest.mark.requires_django_project
+@pytest.importorskip("django.settings.INSTALLED_APPS")
 @pytest.mark.django_db
 class TestFormView:
     """

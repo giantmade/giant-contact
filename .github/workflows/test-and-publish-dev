@@ -1,11 +1,12 @@
 name: Build Server
 on:
   pull_request:
-    branches: ['develop']
+    branches:
+      - develop
     types: ['opened', 'edited', 'reopened', 'synchronize']
 
 jobs:
-  build:
+  build-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,3 +21,7 @@ jobs:
         uses: dschep/install-poetry-action@v1.3
         run: |
           poetry build
+
+      - name: Test
+        run: |
+          poetry run pytest src

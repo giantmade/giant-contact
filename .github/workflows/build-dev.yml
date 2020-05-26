@@ -1,6 +1,6 @@
 name: Test and Publish
 on:
-  pull_request:
+  push:
     branches:
       - develop
     types: ['opened', 'edited', 'reopened', 'synchronize']
@@ -10,12 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@checkout@50fbc622fc4ef5163becd7fab6573eac35f8462e
+      - uses: actions/checkout@50fbc622fc4ef5163becd7fab6573eac35f8462e
 
-      - name: Set up Python 3.6
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.6
+      - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+        architecture: 'x64' 
+
 
       - name: Install Poetry and build package
         uses: dschep/install-poetry-action@v1.3

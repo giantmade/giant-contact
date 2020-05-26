@@ -1,0 +1,3 @@
+- Upload to test.pypi
+- Clone into existing project and test
+- PR to `master`.

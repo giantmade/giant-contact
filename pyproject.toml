@@ -17,14 +17,23 @@ classifiers = [
 include = [
     "LICENSE",
 ]
+packages = [
+    { include = "contact" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.6"
-django = "2.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 black = "^19.10b0"
+django-cms = "^3.7.2"
+django = "2.2"
+
+[[tool.poetry.source]]
+name = "TestPyPi"
+url = "https://test.pypi.org/simple/"
+secondary = true
 
 [build-system]
 requires = ["poetry>=0.12"]

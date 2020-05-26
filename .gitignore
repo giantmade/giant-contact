@@ -1,1 +1,5 @@
 .idea
+.vscode
+.pytest_cache
+*__pycache__
+giant_contact.egg-info

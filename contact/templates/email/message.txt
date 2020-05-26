@@ -1,0 +1,10 @@
+Name: {{ obj.full_name }}
+Email: {{ obj.email }}
+
+Subject:
+{{ obj.subject}}
+Message:
+{{ obj.message }}
+
+You can view the new enquiry here:
+{{ obj.admin_url }}

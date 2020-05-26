@@ -1,0 +1,22 @@
+name: Build Server
+on:
+  pull_request:
+    branches: ['develop']
+    types: ['opened', 'edited', 'reopened', 'synchronize']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@develop
+
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+
+      - name: Install Poetry and build package
+        uses: dschep/install-poetry-action@v1.3
+        run: |
+          poetry build

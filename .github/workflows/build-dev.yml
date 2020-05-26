@@ -28,5 +28,5 @@ jobs:
       - name: Test and build
         run: |
           poetry install
-          poetry run pytest src
+          poetry run pytest
           poetry build

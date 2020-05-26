@@ -1,4 +1,4 @@
-name: Build Server
+name: Test and Publish
 on:
   pull_request:
     branches:
@@ -12,10 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@develop
 
-      - name: Set up Python 3.7
+      - name: Set up Python 3.6
         uses: actions/setup-python@v1
         with:
-          python-version: 3.7
+          python-version: 3.6
 
       - name: Install Poetry and build package
         uses: dschep/install-poetry-action@v1.3

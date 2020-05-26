@@ -21,7 +21,8 @@ jobs:
 
       - name: Install Poetry and build package
         uses: dschep/install-poetry-action@v1.3
-        run: poetry build
 
-      - name: Test
-        run: poetry run pytest src
+      - name: Test and build
+        run: |
+          poetry run pytest src
+          poetry build

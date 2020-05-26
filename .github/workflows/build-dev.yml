@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@develop
+      - uses: actions/checkout@checkout@50fbc622fc4ef5163becd7fab6573eac35f8462e
 
       - name: Set up Python 3.6
         uses: actions/setup-python@v1
@@ -19,9 +19,7 @@ jobs:
 
       - name: Install Poetry and build package
         uses: dschep/install-poetry-action@v1.3
-        run: |
-          poetry build
+        run: poetry build
 
       - name: Test
-        run: |
-          poetry run pytest src
+        run: poetry run pytest src

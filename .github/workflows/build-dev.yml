@@ -13,10 +13,10 @@ jobs:
       - uses: actions/checkout@50fbc622fc4ef5163becd7fab6573eac35f8462e
 
       - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-        architecture: 'x64' 
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          architecture: 'x64' 
 
 
       - name: Install Poetry and build package

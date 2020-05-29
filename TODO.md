@@ -1,3 +1,3 @@
-- Upload to test.pypi
+- add migrations
 - Clone into existing project and test
 - PR to `master`.

@@ -1,0 +1,31 @@
+name: Test
+on:
+  pull_request:
+    branches:
+      - develop
+      - master
+    types: ['opened', 'edited', 'reopened', 'synchronize']
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@50fbc622fc4ef5163becd7fab6573eac35f8462e
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.6.x'
+
+      - name: Install Poetry
+        uses: dschep/install-poetry-action@v1.3
+        with:
+          create_virtualenvs: true
+
+      - name: Build and Test
+        run: |
+          poetry install
+          poetry run pytest
+          poetry build
+

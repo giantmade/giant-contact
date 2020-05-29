@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView
 
 from .forms import EnquiryForm
-from .models import Contact, Enquiry
+from .models import Enquiry
 
 
 class EnquiryFormView(CreateView):

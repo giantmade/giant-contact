@@ -8,6 +8,7 @@ class TestFormView:
     """
     Test case for the form view
     """
+
     from contact import models, views
 
     def test_form(self, client):
@@ -24,8 +25,8 @@ class TestFormView:
         Test the form redirects correctly on form submission
         """
 
-        enquiry = models.Enquiry.objects.create()
-        view = views.EnquiryFormView()
+        enquiry = self.models.Enquiry.objects.create()
+        view = self.views.EnquiryFormView()
         view.object = enquiry
         success_url = view.get_success_url()
 

@@ -9,26 +9,36 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Enquiry',
+            name="Enquiry",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
-                ('updated_at', mixins.fields.AutoDateTimeField(default=django.utils.timezone.now)),
-                ('first_name', models.CharField(max_length=255)),
-                ('last_name', models.CharField(max_length=255)),
-                ('email', models.EmailField(max_length=254)),
-                ('subject', models.CharField(max_length=255)),
-                ('message', models.CharField(max_length=255)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("created_at", models.DateTimeField(default=django.utils.timezone.now)),
+                (
+                    "updated_at",
+                    mixins.fields.AutoDateTimeField(default=django.utils.timezone.now),
+                ),
+                ("first_name", models.CharField(max_length=255)),
+                ("last_name", models.CharField(max_length=255)),
+                ("email", models.EmailField(max_length=254)),
+                ("subject", models.CharField(max_length=255)),
+                ("message", models.CharField(max_length=255)),
             ],
             options={
-                'verbose_name': 'Enquiry',
-                'verbose_name_plural': 'Enquiries',
-                'ordering': ['-created_at', 'last_name'],
+                "verbose_name": "Enquiry",
+                "verbose_name_plural": "Enquiries",
+                "ordering": ["-created_at", "last_name"],
             },
         ),
     ]

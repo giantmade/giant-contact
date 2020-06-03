@@ -5,7 +5,7 @@ from django.db import models
 from django.template.loader import render_to_string
 from django.urls import reverse, reverse_lazy
 
-from mixins.models import PublishingMixin, PublishingQuerySetMixin, TimestampMixin
+from mixins.models import TimestampMixin
 
 
 class Enquiry(TimestampMixin):

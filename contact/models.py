@@ -43,13 +43,13 @@ class Enquiry(TimestampMixin):
 
         # Build HTML representation.
         html_result = render_to_string(
-            "contact/email/message.html" or settings.CONTACT_EMAIL_TEMPLATE_HTML,
+            "./email/message.html" or settings.CONTACT_EMAIL_TEMPLATE_HTML,
             context={"obj": self},
         )
 
         # Build text representation.
         txt_result = render_to_string(
-            "contact/email/message.txt" or settings.CONTACT_EMAIL_TEMPLATE_TXT,
+            "./email/message.txt" or settings.CONTACT_EMAIL_TEMPLATE_TXT,
             context={"obj": self},
         )
 

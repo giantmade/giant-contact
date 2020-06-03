@@ -1,3 +1,2 @@
-- add migrations
-- Clone into existing project and test
-- PR to `master`.
+- Fix issues that pop up when running in a project
+- Refactor to have a settings file, which should allow for running tests in the app without a project.

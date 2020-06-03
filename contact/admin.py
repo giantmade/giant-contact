@@ -19,7 +19,7 @@ class EnquiryAdmin(admin.ModelAdmin):
     ] or settings.CONTACT_ADMIN_LIST_DISPLAY
 
     fieldsets = (
-        ("Details", {"fields": ["first_name", "last_name", "email", "subject",]},),
+        ("Details", {"fields": ["first_name", "last_name", "email", "subject", "message"]},),
         (
             "Metadata",
             {"fields": ["created_at", "updated_at"]},

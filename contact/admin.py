@@ -22,7 +22,7 @@ class EnquiryAdmin(admin.ModelAdmin):
         ("Details", {"fields": ["first_name", "last_name", "email", "subject",]},),
         (
             "Metadata",
-            {"fields": ["created_at", "updated_at", "is_published", "publish_at"]},
+            {"fields": ["created_at", "updated_at"]},
         ),
     ) or settings.CONTACT_ADMIN_FIELDSETS
 

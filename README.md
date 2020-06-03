@@ -10,11 +10,10 @@ To install with the package manager, run:
 
     $ poetry add giant-contact
 
-You should then add `"contact"` to the `INSTALLED_APPS` in `base.py`.  
+You should then add `"contact"` to the `INSTALLED_APPS` in `base.py` and to the `Makefile`.  
 
 In `base.py` there should also be a `DEFAULT_FROM_EMAIL` and a `DEFAULT_TO_EMAIL`. This is used by the email sending method.
 
-Add if you're using `django-project-base`, you can add `contact` to the `Makefile` and to run migrations and tests.
 
 ## Configuration
 
@@ -34,7 +33,7 @@ This application exposes the following settings:
 
 Add the following to `core.urls` for general functionality:
 
-    path("contact/", include("contact.urls"), namespace=contact)
+    path("contact/", include("contact.urls"), name="contact"),
 
 If you want to customize the urls to include a different path and/or templates, first you must import `contact.views` in `core.urls` and then you could do add the following:
 

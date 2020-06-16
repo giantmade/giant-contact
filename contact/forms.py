@@ -8,6 +8,7 @@ class EnquiryForm(forms.ModelForm):
     """
     Form class for the Enquiry model.
     """
+    required_fields = getattr(settings, "CONTACT_FORM_REQUIRED_FIELDS", [])
 
     class Meta:
         model = models.Enquiry
@@ -16,7 +17,6 @@ class EnquiryForm(forms.ModelForm):
             "CONTACT_FORM_FIELDS",
             ["name", "organisation", "email", "phone_number", "subject", "message",],
         )
-        required_fields = getattr(settings, "CONTACT_FORM_REQUIRED_FIELDS", None)
         labels = getattr(settings, "CONTACT_FORM_LABELS", None)
         widgets = getattr(settings, "CONTACT_FORM_WIDGETS", None)
 
@@ -27,10 +27,9 @@ class EnquiryForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         # Update the required fields
-        if self.Meta.required_fields:
-            for field in self.fields:
-                if field not in self.Meta.required_fields:
-                    self.fields[field].required = False
+        for field in self.fields:
+            if field not in self.required_fields:
+                self.fields[field].required = False
 
     def process(self):
         """

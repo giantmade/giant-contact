@@ -3,9 +3,9 @@ from contact.cms_apps import ContactApp
 
 
 @pytest.mark.requires_django_project
-class TestEventsApp:
+class TestContactApp:
     """
-    Test case for the EventsApp
+    Test case for the ContactApp
     """
 
     def test_get_urls_method(self):

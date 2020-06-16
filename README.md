@@ -25,9 +25,14 @@ This application exposes the following settings:
 - `CONTACT_EMAIL_TEMPLATE_HTML` is the path to the email's HTML representation.
 - `CONTACT_EMAIL_TEMPLATE_TXT` is the path to the email's text representation.
 
-- `CONTACT_ADMIN_LIST_DISPLAY` is the field list for the admin index.
-- `CONTACT_ADMIN_FIELDSETS` allows the user to define the admin fieldset.
-- `CONTACT_ADMIN_READONLY_FIELDS` allows the user to configure readonly fields in the admin.
+- `CONTACT_ADMIN_LIST_DISPLAY` is the field list for the admin index. This must be a list
+- `CONTACT_ADMIN_FIELDSETS` allows the user to define the admin fieldset. This must be a list of two-tuples
+- `CONTACT_ADMIN_READONLY_FIELDS` allows the user to configure readonly fields in the admin. This must be a list
+
+- `CONTACT_FORM_FIELDS` allows the user to customise what fields are displayed on the contact form. This must be a list
+- `CONTACT_FORM_REQUIRED_FIELDS` allows the user to customise what fields are required on the contact form. This must be a list
+- `CONTACT_FORM_LABELS` allows the user to customise what the field labels are on the contact form. This must be a dict of field names and their corresponding label
+- `CONTACT_FORM_WIDGETS` allows the user to customise what the field widgets are on the contact form. This must be a dict of field names and their corresponding widget
 
 ## URLs
 

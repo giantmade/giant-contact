@@ -11,9 +11,7 @@ class EnquiryAdmin(admin.ModelAdmin):
     """
 
     list_display = getattr(
-        settings,
-        "CONTACT_ADMIN_LIST_DISPLAY",
-        ["name", "email", "created_at"],
+        settings, "CONTACT_ADMIN_LIST_DISPLAY", ["name", "email", "created_at"],
     )
 
     fieldsets = getattr(
@@ -22,7 +20,16 @@ class EnquiryAdmin(admin.ModelAdmin):
         (
             (
                 "Details",
-                {"fields": ["name", "organisation", "email", "phone_number", "subject", "message"]},
+                {
+                    "fields": [
+                        "name",
+                        "organisation",
+                        "email",
+                        "phone_number",
+                        "subject",
+                        "message",
+                    ]
+                },
             ),
             ("Metadata", {"fields": ["created_at", "updated_at"]},),
         ),

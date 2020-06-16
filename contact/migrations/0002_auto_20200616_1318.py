@@ -6,41 +6,38 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('contact', '0001_initial'),
+        ("contact", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='enquiry',
-            options={'ordering': ['-created_at', 'name'], 'verbose_name': 'Enquiry', 'verbose_name_plural': 'Enquiries'},
+            name="enquiry",
+            options={
+                "ordering": ["-created_at", "name"],
+                "verbose_name": "Enquiry",
+                "verbose_name_plural": "Enquiries",
+            },
         ),
         migrations.RenameField(
-            model_name='enquiry',
-            old_name='first_name',
-            new_name='name',
+            model_name="enquiry", old_name="first_name", new_name="name",
         ),
-        migrations.RemoveField(
-            model_name='enquiry',
-            name='last_name',
-        ),
+        migrations.RemoveField(model_name="enquiry", name="last_name",),
         migrations.AddField(
-            model_name='enquiry',
-            name='organisation',
+            model_name="enquiry",
+            name="organisation",
             field=models.CharField(blank=True, max_length=255),
         ),
         migrations.AddField(
-            model_name='enquiry',
-            name='phone_number',
+            model_name="enquiry",
+            name="phone_number",
             field=models.CharField(blank=True, max_length=255),
         ),
         migrations.AlterField(
-            model_name='enquiry',
-            name='message',
-            field=models.TextField(),
+            model_name="enquiry", name="message", field=models.TextField(),
         ),
         migrations.AlterField(
-            model_name='enquiry',
-            name='subject',
+            model_name="enquiry",
+            name="subject",
             field=models.CharField(blank=True, max_length=255),
         ),
     ]

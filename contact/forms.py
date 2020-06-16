@@ -11,14 +11,11 @@ class EnquiryForm(forms.ModelForm):
 
     class Meta:
         model = models.Enquiry
-        fields = getattr(settings, 'CONTACT_FORM_FIELDS', [
-            "name",
-            "organisation",
-            "email",
-            "phone_number",
-            "subject",
-            "message",
-        ])
+        fields = getattr(
+            settings,
+            "CONTACT_FORM_FIELDS",
+            ["name", "organisation", "email", "phone_number", "subject", "message",],
+        )
         required_fields = getattr(settings, "CONTACT_FORM_REQUIRED_FIELDS", None)
         labels = getattr(settings, "CONTACT_FORM_LABELS", None)
         widgets = getattr(settings, "CONTACT_FORM_WIDGETS", None)

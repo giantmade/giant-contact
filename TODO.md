@@ -1,2 +1,2 @@
-- Fix issues that pop up when running in a project
 - Refactor to have a settings file, which should allow for running tests in the app without a project.
+- Refactor, include default lists in settings file. Write a getattr style function to cut down on code reuse

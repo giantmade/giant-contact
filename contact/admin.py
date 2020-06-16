@@ -10,23 +10,31 @@ class EnquiryAdmin(admin.ModelAdmin):
     Admin class for displaying the Enquiry model data
     """
 
-    list_display = [
-        "first_name",
-        "last_name",
-        "email",
-        "subject",
-        "created_at",
-    ] or settings.CONTACT_ADMIN_LIST_DISPLAY
+    list_display = getattr(
+        settings, "CONTACT_ADMIN_LIST_DISPLAY", ["name", "email", "created_at"],
+    )
 
-    fieldsets = (
-        ("Details", {"fields": ["first_name", "last_name", "email", "subject", "message"]},),
+    fieldsets = getattr(
+        settings,
+        "CONTACT_ADMIN_FIELDSETS",
         (
-            "Metadata",
-            {"fields": ["created_at", "updated_at"]},
+            (
+                "Details",
+                {
+                    "fields": [
+                        "name",
+                        "organisation",
+                        "email",
+                        "phone_number",
+                        "subject",
+                        "message",
+                    ]
+                },
+            ),
+            ("Metadata", {"fields": ["created_at", "updated_at"]},),
         ),
-    ) or settings.CONTACT_ADMIN_FIELDSETS
+    )
 
-    readonly_fields = [
-        "created_at",
-        "updated_at",
-    ] or settings.CONTACT_ADMIN_READONLY_FIELDS
+    readonly_fields = getattr(
+        settings, "CONTACT_ADMIN_READONLY_FIELDS", ["created_at", "updated_at"]
+    )

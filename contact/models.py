@@ -13,14 +13,15 @@ class Enquiry(TimestampMixin):
     A contact enquiry model for storing the details
     """
 
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    organisation = models.CharField(max_length=255, blank=True)
     email = models.EmailField()
-    subject = models.CharField(max_length=255)
-    message = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=255, blank=True)
+    subject = models.CharField(max_length=255, blank=True)
+    message = models.TextField()
 
     class Meta:
-        ordering = ["-created_at", "last_name"]
+        ordering = ["-created_at", "name"]
         verbose_name = "Enquiry"
         verbose_name_plural = "Enquiries"
 
@@ -37,19 +38,19 @@ class Enquiry(TimestampMixin):
         """
 
         context = {
-            "subject": self.subject,
+            "subject": self.subject or "Contact Enquiry",
             "obj": self,
         }
 
         # Build HTML representation.
         html_result = render_to_string(
-            "./email/message.html" or settings.CONTACT_EMAIL_TEMPLATE_HTML,
+            getattr(settings, "CONTACT_EMAIL_TEMPLATE_HTML", "./email/message.html"),
             context={"obj": self},
         )
 
         # Build text representation.
         txt_result = render_to_string(
-            "./email/message.txt" or settings.CONTACT_EMAIL_TEMPLATE_TXT,
+            getattr(settings, "CONTACT_EMAIL_TEMPLATE_TXT" "./email/message.txt"),
             context={"obj": self},
         )
 

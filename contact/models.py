@@ -50,7 +50,7 @@ class Enquiry(TimestampMixin):
 
         # Build text representation.
         txt_result = render_to_string(
-            getattr(settings, "CONTACT_EMAIL_TEMPLATE_TXT" "./email/message.txt"),
+            getattr(settings, "CONTACT_EMAIL_TEMPLATE_TXT", "./email/message.txt"),
             context={"obj": self},
         )
 

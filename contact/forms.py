@@ -1,4 +1,5 @@
 from django import forms
+from django.conf import settings
 
 from . import models
 
@@ -10,15 +11,29 @@ class EnquiryForm(forms.ModelForm):
 
     class Meta:
         model = models.Enquiry
-        fields = [
-            "first_name",
-            "last_name",
+        fields = getattr(settings, 'CONTACT_FORM_FIELDS', [
+            "name",
+            "organisation",
             "email",
+            "phone_number",
             "subject",
             "message",
-        ]
+        ])
+        required_fields = getattr(settings, "CONTACT_FORM_REQUIRED_FIELDS", None)
+        labels = getattr(settings, "CONTACT_FORM_LABELS", None)
+        widgets = getattr(settings, "CONTACT_FORM_WIDGETS", None)
 
-        widgets = {"message": forms.Textarea}
+    def __init__(self, *args, **kwargs):
+        """
+        Override the init method to set the customised required fields
+        """
+        super().__init__(*args, **kwargs)
+
+        # Update the required fields
+        if self.fields_required:
+            for field in self.fields:
+                if field not in self.fields_required:
+                    self.fields[field].required = False
 
     def process(self):
         """

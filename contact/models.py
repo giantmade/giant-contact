@@ -30,7 +30,7 @@ class Enquiry(TimestampMixin):
         String representation of the enquiry object
         """
 
-        return f"Contact Enquiry from {self.full_name}"
+        return f"Contact Enquiry from {self.name}"
 
     def send_email(self):
         """
@@ -50,7 +50,7 @@ class Enquiry(TimestampMixin):
 
         # Build text representation.
         txt_result = render_to_string(
-            getattr(settings, "CONTACT_EMAIL_TEMPLATE_TXT" "./email/message.txt"),
+            getattr(settings, "CONTACT_EMAIL_TEMPLATE_TXT", "./email/message.txt"),
             context={"obj": self},
         )
 
@@ -64,14 +64,6 @@ class Enquiry(TimestampMixin):
 
         message.attach_alternative(content=html_result, mimetype="text/html")
         message.send()
-
-    @property
-    def full_name(self):
-        """
-        Return the full name of the contact
-        """
-
-        return f"{self.first_name} {self.last_name}"
 
     @property
     def get_absolute_url(self):

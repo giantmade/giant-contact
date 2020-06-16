@@ -27,9 +27,9 @@ class EnquiryForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         # Update the required fields
-        if self.fields_required:
+        if self.required_fields:
             for field in self.fields:
-                if field not in self.fields_required:
+                if field not in self.required_fields:
                     self.fields[field].required = False
 
     def process(self):

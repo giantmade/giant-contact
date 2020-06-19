@@ -30,6 +30,7 @@ This application exposes the following settings:
 - `CONTACT_ADMIN_READONLY_FIELDS` allows the user to configure readonly fields in the admin. This must be a list
 
 - `CONTACT_FORM_FIELDS` allows the user to customise what fields are displayed on the contact form. This must be a list
+- `CONTACT_FORM_FIELD_PLACEHOLDERS` allows the user to customise the field placeholder text. This must be a dict containing the fieldnames
 - `CONTACT_FORM_REQUIRED_FIELDS` allows the user to customise what fields are required on the contact form. This must be a list
 - `CONTACT_FORM_LABELS` allows the user to customise what the field labels are on the contact form. This must be a dict of field names and their corresponding label
 - `CONTACT_FORM_WIDGETS` allows the user to customise what the field widgets are on the contact form. This must be a dict of field names and their corresponding widget

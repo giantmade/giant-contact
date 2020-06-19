@@ -9,7 +9,7 @@ class EnquiryForm(forms.ModelForm):
     Form class for the Enquiry model.
     """
     required_fields = getattr(settings, "CONTACT_FORM_REQUIRED_FIELDS", [])
-    field_placeholders = getattr(settings, "CONTACT_FORM_FIELD_PLACEHOLDERS", None)
+    field_placeholders = getattr(settings, "CONTACT_FORM_FIELD_PLACEHOLDERS", {})
 
     class Meta:
         model = models.Enquiry
@@ -31,10 +31,10 @@ class EnquiryForm(forms.ModelForm):
         for field in self.required_fields:
             self.fields[field].required = True
 
-        if self.field_placeholders:
-            for field, placeholder in self.field_placeholders.items():
-                field = self.fields.get(field)
-                field.widget.attrs["placeholder"] = placeholder
+        # Update field placeholder
+        for field, placeholder in self.field_placeholders.items():
+            field = self.fields.get(field)
+            field.widget.attrs["placeholder"] = placeholder
 
     def process(self):
         """

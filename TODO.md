@@ -1,2 +1,3 @@
 - Refactor to have a settings file, which should allow for running tests in the app without a project.
 - Refactor, include default lists in settings file. Write a getattr style function to cut down on code reuse
+- Add a CSV exporter

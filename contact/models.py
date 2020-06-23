@@ -71,7 +71,7 @@ class Enquiry(TimestampMixin):
         Return the absolute URL
         """
 
-        return reverse_lazy("contact:contact-us")
+        return reverse_lazy(getattr(settings, "CONTACT_ABSOLUTE_URL", "contact:contact-us"))
 
     @property
     def admin_url(self):

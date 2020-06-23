@@ -1,4 +1,5 @@
 from django.http import HttpResponseRedirect
+from django.conf import settings
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView
 
@@ -14,7 +15,7 @@ class EnquiryFormView(CreateView):
     model = Enquiry
     form_class = EnquiryForm
     template_name = "./contact_index.html"
-    success_url = reverse_lazy("contact:success")
+    success_url = reverse_lazy(getattr(settings, "CONTACT_SUCCESS_URL", "contact:success"))
 
     def form_valid(self, form):
         """

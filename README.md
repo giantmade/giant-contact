@@ -21,6 +21,8 @@ This application exposes the following settings:
 
 - `DEFAULT_FROM_EMAIL` is the `From` address in the email.
 - `DEFAULT_TO_EMAIL` is the default recipient. This is usually the client's address.
+- `CONTACT_ABSOLUTE_URL` allows the user to set a different URL as used in the `get_absolute_url` method
+- `CONTACT_SUCCESS_URL` allows the user to set a different success URL
 
 - `CONTACT_EMAIL_TEMPLATE_HTML` is the path to the email's HTML representation.
 - `CONTACT_EMAIL_TEMPLATE_TXT` is the path to the email's text representation.
@@ -45,6 +47,9 @@ If you want to customize the urls to include a different path and/or templates, 
 
     path("contact-us/", contact.views.EnquiryFormView.as_view({"template_name": "custom_template_name.html}), name=contact-us)
     path("contact-us/success/", contact.views..SuccessView.as_view(), name=contact-success)
+ 
+ ## Context Processor
+ If you wish to use the Contact form with the context processor you will need to add `contact.context_processors.enquiry_form` into the `TEMPLATES` context processors list. This will allow you to access the form in templates.
  
  ## Preparing for release
  

@@ -2,7 +2,6 @@ import pytest
 from contact.cms_apps import ContactApp
 
 
-@pytest.mark.requires_django_project
 class TestContactApp:
     """
     Test case for the ContactApp

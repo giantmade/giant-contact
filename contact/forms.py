@@ -8,6 +8,7 @@ class EnquiryForm(forms.ModelForm):
     """
     Form class for the Enquiry model.
     """
+
     required_fields = getattr(settings, "CONTACT_FORM_REQUIRED_FIELDS", [])
     field_placeholders = getattr(settings, "CONTACT_FORM_FIELD_PLACEHOLDERS", {})
 

@@ -1,25 +1,25 @@
 import pytest
 from django.core.mail import EmailMultiAlternatives
+from contact.models import Enquiry
+
+from . import conftest
 
 
-@pytest.importorskip("django.settings.INSTALLED_APPS")
-@pytest.mark.django_db
 class TestEnquiry:
     """
     A test class for the enquiry model and it's functionality.
     """
 
-    from contact.models import Enquiry
-
-    def test_str(self):
+    def test_str(self, enquiry_instance):
         """
         Test the str method returns the correct value
         """
 
-        obj = self.Enquiry(first_name="John", last_name="Doe")
-        assert str(obj) == "Contact enquiry from John Doe"
+        obj = enquiry_instance
+        assert str(obj) == "Contact Enquiry from John Doe"
 
-    def test_email_send(self, mocker):
+    @pytest.mark.django_db
+    def test_email_send(self, mocker, enquiry_instance):
         """
         Test the email is sent on correct form submission
         """
@@ -28,7 +28,6 @@ class TestEnquiry:
         mocker.patch.object(
             EmailMultiAlternatives, "send", send_mock,
         )
-        obj = self.Enquiry(email="john@company.com",)
 
-        obj.send_email()
+        enquiry_instance.send_email()
         send_mock.assert_called_once()

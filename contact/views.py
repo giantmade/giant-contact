@@ -14,8 +14,10 @@ class EnquiryFormView(CreateView):
 
     model = Enquiry
     form_class = EnquiryForm
-    template_name = "./contact_index.html"
-    success_url = reverse_lazy(getattr(settings, "CONTACT_SUCCESS_URL", "contact:success"))
+    template_name = "contact/index.html"
+    success_url = reverse_lazy(
+        getattr(settings, "CONTACT_SUCCESS_URL", "contact:success")
+    )
 
     def form_valid(self, form):
         """
@@ -31,4 +33,4 @@ class SuccessView(TemplateView):
     Template CBV that displays the success page
     """
 
-    template_name = "./contact_success.html"
+    template_name = "contact/success.html"

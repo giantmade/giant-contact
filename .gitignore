@@ -5,3 +5,6 @@
 giant_contact.egg-info
 poetry.lock
 dist
+.coverage
+test-reports
+giant-contact

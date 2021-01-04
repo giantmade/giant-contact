@@ -24,10 +24,12 @@ class EnquiryAdmin(admin.ModelAdmin):
                     "fields": [
                         "name",
                         "organisation",
+                        "country",
                         "email",
                         "phone_number",
                         "subject",
                         "message",
+                        "accepted_terms",
                     ]
                 },
             ),

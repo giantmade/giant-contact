@@ -15,10 +15,12 @@ class Enquiry(TimestampMixin):
 
     name = models.CharField(max_length=255)
     organisation = models.CharField(max_length=255, blank=True)
+    country = models.CharField(max_length=255, blank=True)
     email = models.EmailField()
     phone_number = models.CharField(max_length=255, blank=True)
     subject = models.CharField(max_length=255, blank=True)
     message = models.TextField()
+    accepted_terms = models.BooleanField(null=True)  # Using null here as some projects won't be using this field
 
     class Meta:
         ordering = ["-created_at", "name"]
@@ -32,6 +34,20 @@ class Enquiry(TimestampMixin):
 
         return f"Contact Enquiry from {self.name}"
 
+    @property
+    def first_name(self):
+        """
+        Returns the first name from the name field
+        """
+        return self.name.split(" ")[0]
+
+    @property
+    def last_name(self):
+        """
+        Returns the last name from the name field
+        """
+        return self.name.split(" ")[-1]
+
     def send_email(self):
         """
         Send an email to the admins, notifying of an enquiry
@@ -44,13 +60,17 @@ class Enquiry(TimestampMixin):
 
         # Build HTML representation.
         html_result = render_to_string(
-            getattr(settings, "CONTACT_EMAIL_TEMPLATE_HTML", "./email/message.html"),
+            getattr(
+                settings, "CONTACT_EMAIL_TEMPLATE_HTML", "contact/email/message.html"
+            ),
             context={"obj": self},
         )
 
         # Build text representation.
         txt_result = render_to_string(
-            getattr(settings, "CONTACT_EMAIL_TEMPLATE_TXT", "./email/message.txt"),
+            getattr(
+                settings, "CONTACT_EMAIL_TEMPLATE_TXT", "contact/email/message.txt"
+            ),
             context={"obj": self},
         )
 
@@ -71,7 +91,9 @@ class Enquiry(TimestampMixin):
         Return the absolute URL
         """
 
-        return reverse_lazy(getattr(settings, "CONTACT_ABSOLUTE_URL", "contact:contact-us"))
+        return reverse_lazy(
+            getattr(settings, "CONTACT_ABSOLUTE_URL", "contact:contact-us")
+        )
 
     @property
     def admin_url(self):

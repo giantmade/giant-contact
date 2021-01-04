@@ -20,7 +20,7 @@ class Enquiry(TimestampMixin):
     phone_number = models.CharField(max_length=255, blank=True)
     subject = models.CharField(max_length=255, blank=True)
     message = models.TextField()
-    accepted_terms = models.BooleanField(default=False)
+    accepted_terms = models.BooleanField(null=True)  # Using null here as some projects won't be using this field
 
     class Meta:
         ordering = ["-created_at", "name"]

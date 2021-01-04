@@ -31,3 +31,21 @@ class TestEnquiry:
 
         enquiry_instance.send_email()
         send_mock.assert_called_once()
+
+    def test_first_name(self, enquiry_instance):
+        """
+        Test the first name method correctly splits and returns the first
+        name
+        """
+        obj = enquiry_instance
+
+        assert obj.first_name == "John"
+
+    def test_last_name(self, enquiry_instance):
+        """
+        Test the last name method correctly splits and returns the last
+        name
+        """
+        obj = enquiry_instance
+
+        assert obj.last_name == "Doe"

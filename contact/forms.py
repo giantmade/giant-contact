@@ -17,7 +17,16 @@ class EnquiryForm(forms.ModelForm):
         fields = getattr(
             settings,
             "CONTACT_FORM_FIELDS",
-            ["name", "organisation", "email", "phone_number", "subject", "message",],
+            [
+                "name",
+                "organisation",
+                "country",
+                "email",
+                "phone_number",
+                "subject",
+                "message",
+                "accepted_terms",
+            ],
         )
         labels = getattr(settings, "CONTACT_FORM_LABELS", None)
         widgets = getattr(settings, "CONTACT_FORM_WIDGETS", None)

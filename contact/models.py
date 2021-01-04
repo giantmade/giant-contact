@@ -15,10 +15,12 @@ class Enquiry(TimestampMixin):
 
     name = models.CharField(max_length=255)
     organisation = models.CharField(max_length=255, blank=True)
+    country = models.CharField(max_length=255, blank=True)
     email = models.EmailField()
     phone_number = models.CharField(max_length=255, blank=True)
     subject = models.CharField(max_length=255, blank=True)
     message = models.TextField()
+    accepted_terms = models.BooleanField(default=False)
 
     class Meta:
         ordering = ["-created_at", "name"]
@@ -31,6 +33,20 @@ class Enquiry(TimestampMixin):
         """
 
         return f"Contact Enquiry from {self.name}"
+
+    @property
+    def first_name(self):
+        """
+        Returns the first name from the name field
+        """
+        return self.name.split(" ")[0]
+
+    @property
+    def last_name(self):
+        """
+        Returns the last name from the name field
+        """
+        return self.name.split(" ")[-1]
 
     def send_email(self):
         """

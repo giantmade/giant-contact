@@ -22,6 +22,8 @@ class TestSignupForm:
             "email": "john@company.com",
             "subject": "Subject",
             "message": "Message",
+            "country": "United States",
+            "accepted_terms": False,
         }
 
         form = forms.EnquiryForm(data=data)

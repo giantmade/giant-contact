@@ -3,9 +3,11 @@ from django.contrib import admin
 
 from . import models
 
+from mixins.admin import CSVAdminMixin
+
 
 @admin.register(models.Enquiry)
-class EnquiryAdmin(admin.ModelAdmin):
+class EnquiryAdmin(CSVAdminMixin):
     """
     Admin class for displaying the Enquiry model data
     """

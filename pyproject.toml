@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "giant-contact"
-version = "0.6"
+version = "0.6.1"
 description = "Adds a generic contact app for use with Giant projects"
 authors = ["Will-Hoey <will.hoey@giantmade.com>"]
 license = "MIT"

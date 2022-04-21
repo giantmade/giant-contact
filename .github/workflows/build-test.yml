@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - uses: actions/checkout@50fbc622fc4ef5163becd7fab6573eac35f8462e

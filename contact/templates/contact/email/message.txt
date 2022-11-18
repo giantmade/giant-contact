@@ -1,8 +1,11 @@
 Name: {{ obj.name }}
 Email: {{ obj.email }}
+{% if obj.phone_number %}Phone number: {{ obj.phone_number }}{% endif %}
+{% if obj.organisation %}Organisation: {{ obj.organisation }}{% endif %}
+{% if obj.country %}Country: {{ obj.country }}{% endif %}
 
-Subject:
-{{ obj.subject}}
+{% if obj.subject %}Subject: {{ obj.subject }}{% endif %}
+
 Message:
 {{ obj.message }}
 

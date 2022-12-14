@@ -22,7 +22,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.6.2"
+python = "^3.9"
 giant-mixins = "*"
 
 [tool.poetry.dev-dependencies]

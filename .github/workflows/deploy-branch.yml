@@ -1,0 +1,29 @@
+---
+name: Deploy Branch to dev.giantmade.net
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch-name: 
+        description: 'Branch name to push: '
+        required: true
+      pr-number: 
+        description: 'PR Number to Comment URL: '
+        required: true
+      db:
+        description: 'Database Tech App to use: '
+        required: true
+        default: 'mysql'
+      email:
+        description: 'EMAIL_URL Environment Variable Value: '
+        required: false
+      sentry:
+        description: 'SENTRY_URL Environment Variable Value: '
+        required: false
+      secret:
+        description: 'SECRET_KEY Environment Variable Value: '
+        required: false
+
+jobs:
+  deploy:
+    uses: giantmade/github-actions/.github/workflows/deploy-branch.yml@main

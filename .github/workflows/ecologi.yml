@@ -1,0 +1,12 @@
+name: Ecologi
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+
+jobs:
+  ecologi:
+    name: Plant A Tree
+    uses: giantmade/github-actions/.github/workflows/ecologi.yml@main

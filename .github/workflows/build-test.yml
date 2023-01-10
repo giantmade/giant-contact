@@ -1,35 +1,13 @@
-name: Test
+---
+name: Build & Test
+
 on:
   pull_request:
     branches:
+      - main
       - develop
-      - master
-    types: ['opened', 'edited', 'reopened', 'synchronize']
 
 jobs:
-  build-test:
-    runs-on: self-hosted
-
-    steps:
-      - uses: actions/checkout@50fbc622fc4ef5163becd7fab6573eac35f8462e
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.6.x'
-
-      - name: Install Poetry
-        uses: snok/install-poetry@v1.1.1
-        with:
-          virtualenvs-create: true
-
-      - name: Build and Test
-        run: |
-          poetry install
-          poetry run pytest
-          poetry build
-
-      - name: Upload coverage to codecov
-        uses: codecov/codecov-action@797e92895ec0eac368405352c0add9af878fe257  # v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+  build-and-test:
+    name: Build & Run Pytest
+    uses: giantmade/github-actions/.github/workflows/build-test.yml@main

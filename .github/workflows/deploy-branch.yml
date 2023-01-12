@@ -27,3 +27,4 @@ on:
 jobs:
   deploy:
     uses: giantmade/github-actions/.github/workflows/deploy-branch.yml@main
+    secrets: inherit

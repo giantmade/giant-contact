@@ -9,5 +9,4 @@ on:
 jobs:
   deploy:
     uses: giantmade/github-actions/.github/workflows/deploy-dev.yml@main
-    with: 
-      branch: ${{ github.head_ref }}
+    secrets: inherit

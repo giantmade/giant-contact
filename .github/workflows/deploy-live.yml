@@ -9,3 +9,4 @@ on:
 jobs:
   deploy:
     uses: giantmade/github-actions/.github/workflows/deploy-live.yml@main
+    secrets: inherit

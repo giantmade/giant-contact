@@ -1,8 +1,6 @@
 Name: {{ obj.name }}
 Email: {{ obj.email }}
 
-Subject:
-{{ obj.subject}}
 Message:
 {{ obj.message }}
 

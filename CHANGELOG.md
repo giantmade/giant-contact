@@ -1,1 +1,2 @@
-Add placeholder setting for fields
+## 0.7 
+-  remove the model instance's subject from template.

@@ -10,3 +10,4 @@ jobs:
   ecologi:
     name: Plant A Tree
     uses: giantmade/github-actions/.github/workflows/ecologi.yml@main
+    secrets: inherit
